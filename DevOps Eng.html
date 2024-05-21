@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEEPAK SINGH - DEVOPS CLOUD ENGINEER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            overflow: hidden;
+        }
+        header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            cursor: move;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+            cursor: move;
+        }
+        h1 {
+            color: #2980b9;
+        }
+        p {
+            color: #666;
+        }
+        .skill-item {
+            display: inline-block;
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #2ecc71;
+            color: #fff;
+            border-radius: 5px;
+            cursor: move;
+        }
+        .education-item {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e74c3c;
+            color: #fff;
+            border-radius: 5px;
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    <header draggable="true">
+        <h1>DEEPAK SINGH - DEVOPS CLOUD ENGINEER</h1>
+    </header>
+    <section draggable="true">
+        <h2>About Me</h2>
+        <p>I am Deepak Singh, a recent graduate aspiring to become a DevOps Cloud Engineer. I am enthusiastic about automation, continuous integration, and cloud technologies.</p>
+    </section>
+    <section draggable="true">
+        <h2>Skills</h2>
+        <div id="skills"></div>
+    </section>
+    <section draggable="true">
+        <h2>Education</h2>
+        <div class="education-item">
+            <p>Bachelor of Technology in Computer Science</p>
+            <p>University Name, Graduation Year</p>
+        </div>
+    </section>
+    <section draggable="true">
+        <h2>Contact</h2>
+        <p>Email: deepakhietsingh@gmail.com</p>
+        <p>Phone: +91-6396921194</p>
+    </section>
+
+    <script>
+        // Function to add skills dynamically
+        function addSkill(skill) {
+            var skillItem = document.createElement('span');
+            skillItem.textContent = skill;
+            skillItem.classList.add('skill-item');
+            document.getElementById('skills').appendChild(skillItem);
+        }
+
+        // Add skills
+        var skills = ['Linux Administration', 'Scripting (Python, Shell)', 'Continuous Integration/Continuous Deployment (CI/CD)', 'Containerization (Docker)', 'Infrastructure as Code (IaC)'];
+        skills.forEach(function(skill) {
+            addSkill(skill);
+        });
+
+        // Make sections draggable
+        var draggableSections = document.querySelectorAll('section');
+        draggableSections.forEach(function(section) {
+            section.addEventListener('drag', function(event) {
+                var x = event.clientX;
+                var y = event.clientY;
+                section.style.left = x + 'px';
+                section.style.top = y + 'px';
+            });
+        });
+    </script>
+</body>
+</html>
